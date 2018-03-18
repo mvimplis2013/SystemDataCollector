@@ -1,11 +1,18 @@
 from datastore import SystemMetrics 
+from colorama import Fore, Back, Style 
+
+import json
 
 systemMetrics = SystemMetrics()
 
 def get_sensors(response):
     print('Inside Handler "Sensors" ...')
     systemMetrics.setSensorsData(response);
-    print(systemMetrics.getSensorsData())
+    sensors = systemMetrics.getSensorsData()
+    for s in sensors:
+        print( "Sensor i --> " + json.dumps(s) )
+        print('-------------------------------------------')
+
     return 
 
 def get_network(response):
@@ -76,7 +83,12 @@ def get_ip(response):
     return
 
 def get_cpu(response):
-    #print("Inside Handler ... " + response)
+    print( Back.YELLOW + 'Inside Handler "CPU"... ' + response )
+    print( Style.RESET_ALL )
+
+    systemMetrics.setCpuData( response )
+    print( systemMetrics.getCpuData() )
+
     return
 
 def get_fs(response):
@@ -96,7 +108,9 @@ def get_core(response):
     return
 
 def get_mem(response):
-    #print("Inside Handler ... " + response)
+    print('Inside Handler "Memory" ... ' + response)
+    systemMetrics.setMemoryData(response)
+    print(systemMetrics.getMemoryData())
     return
 
 def get_docker(response):
