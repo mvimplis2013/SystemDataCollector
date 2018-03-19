@@ -29,6 +29,4 @@ class SystemMetrics:
         return self.system_metrics["memory"].getData()
 
     def getCpuData(self):
-        self.system_metrics['cpu'].populate()
-        
-        return self.system_metrics["cpu"].getOneKey()
+        return self.system_metrics["cpu"]

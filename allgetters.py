@@ -87,7 +87,7 @@ def get_cpu(response):
     print( Style.RESET_ALL )
 
     systemMetrics.setCpuData( response )
-    print( systemMetrics.getCpuData() )
+    print( "8888 " + str( systemMetrics.getCpuData().get_iowait() ) ) 
 
     return
 

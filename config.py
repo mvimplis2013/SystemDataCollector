@@ -129,6 +129,7 @@ class Config(object):
         # CPU
         if not self.parser.has_section('cpu'):
             self.parser.add_section('cpu')
+        
         self.set_default_cwc('cpu', 'user')
         self.set_default_cwc('cpu', 'system')
         self.set_default_cwc('cpu', 'steal')
